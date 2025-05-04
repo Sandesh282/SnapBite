@@ -1,0 +1,23 @@
+User
+- user_id
+- name
+- email
+- password
+- cart [list of Dish]
++ add_to_cart(dish)
++ view_cart()
++ place_order()
+
+Restaurant
+- restaurant_id
+- name
+- address
+- menu [list of Dish]
++ add_dish(dish)
++ view_menu()
+
+Dish
+- dish_id
+- name
+- price
++ get_details()
