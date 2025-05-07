@@ -1,11 +1,26 @@
 package backend.data;
 import backend.models.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class MockDatabase {
-
+    public static class User {
+        private int id;
+        private String name;
+        private String email;
+    
+        public User(int id, String name, String email) {
+            this.id = id;
+            this.name = name;
+            this.email = email;
+        }
+    
+        // optional getters
+        public int getId() { return id; }
+        public String getName() { return name; }
+        public String getEmail() { return email; }
+    }
+    
     private static List<User> users = new ArrayList<>();
     private static List<Order> orders = new ArrayList<>();
     private static List<Dish> dishes = new ArrayList<>();
@@ -32,7 +47,7 @@ public class MockDatabase {
 
     public static Order getOrderById(int orderId) {
         for (Order order : orders) {
-            if (order.getId() == orderId) {
+            if (order.getOrderId().equals(String.valueOf(orderId))) {
                 return order;
             }
         }
@@ -45,7 +60,7 @@ public class MockDatabase {
 
     public static Dish getDishById(int dishId) {
         for (Dish dish : dishes) {
-            if (dish.getId() == dishId) {
+            if (dish.getDishId() == dishId) {
                 return dish;
             }
         }
@@ -58,7 +73,7 @@ public class MockDatabase {
 
     public static Payment getPaymentById(int paymentId) {
         for (Payment payment : payments) {
-            if (payment.getId() == paymentId) {
+            if (payment.getPaymentId().equals(String.valueOf(paymentId))) {
                 return payment;
             }
         }
@@ -69,14 +84,6 @@ public class MockDatabase {
         restaurants.add(restaurant);
     }
 
-    public static Restaurant getRestaurantById(int restaurantId) {
-        for (Restaurant restaurant : restaurants) {
-            if (restaurant.getId() == restaurantId) {
-                return restaurant;
-            }
-        }
-        return null;
-    }
 
     public static void addDeliveryPerson(DeliveryPerson deliveryPerson) {
         deliveryPeople.add(deliveryPerson);
@@ -84,7 +91,7 @@ public class MockDatabase {
 
     public static DeliveryPerson getDeliveryPersonById(int deliveryPersonId) {
         for (DeliveryPerson deliveryPerson : deliveryPeople) {
-            if (deliveryPerson.getId() == deliveryPersonId) {
+            if (deliveryPerson.getId().equals(String.valueOf(deliveryPersonId))) {
                 return deliveryPerson;
             }
         }
