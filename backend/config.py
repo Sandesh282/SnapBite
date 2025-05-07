@@ -1,6 +1,6 @@
 class Config:
     RESPONSE_TIMEOUT = 2
-    BASE_URL = "https://snapbite.com"
+    BASE_URL = "https:/snap-bite-five.vercel.app/"
     API_KEY = "snapbite-demo-key"
 
     @classmethod
